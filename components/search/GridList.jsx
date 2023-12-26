@@ -7,7 +7,7 @@ import Card from "./../MangaList/Card"
 import { Pagination } from "@nextui-org/react"
 import useMangaSearch from "@/hooks/manga/useMangaSearch"
 
-const List = ({ dataList, metaData }) => {
+const List = ({ dataList, metaData, id }) => {
 
 
     const [loading, setLoading] = useState(false)

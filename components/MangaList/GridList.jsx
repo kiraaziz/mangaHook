@@ -10,6 +10,7 @@ const List = ({ dataList, metaData }) => {
 
     const searchParams = useSearchParams()
     const router = useRouter()
+    const [first, setFirst] = useState(true)
 
     const [loading, setLoading] = useState(false)
     const [totalMangaPages, setTotalMangaPages] = useState(metaData.totalPages)
@@ -30,13 +31,12 @@ const List = ({ dataList, metaData }) => {
     }
 
     const handleRedirect = (f, e) => {
-
         router.push(redirectUrlGenerator(searchParams, metaData, f, e))
     }
 
-    // useLayoutEffect(() => {
-    //     loadData()
-    // }, [searchParams])
+    useLayoutEffect(() => {
+        loadData()
+    }, [searchParams])
 
     return (
         <>

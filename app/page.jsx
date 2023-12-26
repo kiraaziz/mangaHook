@@ -1,5 +1,5 @@
 import useMangaList from "@/hooks/manga/useMangaList"
-import GridList from "@/components/search/GridList"
+import GridList from "@/components/MangaList/GridList"
 
 const MangaList = async () => {
 

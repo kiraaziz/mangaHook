@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react"
-import { useSearchParams, useRouter } from "next/navigation"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import { redirectUrlGenerator } from "@/hooks/utils/redirectUrlGenerator"
 import { NavbarItem, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Button, Tabs, Tab } from "@nextui-org/react";
 import useMangaList from "@/hooks/manga/useMangaList";
@@ -9,6 +9,7 @@ const Category = () => {
 
     const searchParams = useSearchParams()
     const router = useRouter()
+    const path = usePathname()
 
     const [searchParamsStates, setSearchParamsState] = useState({
         category: searchParams.get("category"),
@@ -31,12 +32,12 @@ const Category = () => {
     const loadData = async () => {
         const mangaDataReq = await useMangaList("")
         setMetaData(mangaDataReq.metaData)
-        console.log(mangaDataReq.metaData)
-
     }
 
     useEffect(() => {
-        loadData()
+        if (path === "/") {
+            loadData()
+        }
     }, [])
 
     return (
@@ -47,12 +48,13 @@ const Category = () => {
                     classNames={{
                         cursor: "w-full bg-red-400",
                         tabContent: "group-data-[selected=true]:text-white text-red-400"
-                    }} variant="light" items={metaData.category} aria-label="Options">
+                    }} variant="light" items={metaData.category} defaultSelectedKey={searchParamsStates.category} aria-label="Options">
                     {metaData.category.map((val) => (
                         <Tab key={val.id} title={val.name} />
                     ))}
                 </Tabs>
             </div>
+            {searchParams.category}
             <Dropdown backdrop="blur" className="bg-base-200">
                 <DropdownTrigger>
                     <Button
