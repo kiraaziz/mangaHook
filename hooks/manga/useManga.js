@@ -5,7 +5,7 @@ const useManga = async (id) => {
     const url = `${process.env.API_URL}/api/manga/${id}`
 
     const reqData = await fetch(url, {
-        next: { revalidate: 60 * 60 * 2 },
+        next: { revalidate: 60 * 60 * 10 },
     })
     const data = await reqData.json()
 

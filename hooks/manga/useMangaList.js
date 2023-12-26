@@ -6,7 +6,7 @@ const useMangaList = async (params) => {
 
 
     const reqData = await fetch(url, {
-        next: { revalidate: 60 * 30 },
+        next: { revalidate: 60 * 40 * 5},
     })
     const data = await reqData.json()
 

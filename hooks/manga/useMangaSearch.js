@@ -6,7 +6,7 @@ const useMangaSearch = async (params) => {
 
 
     const reqData = await fetch(url , {
-        next: { revalidate: 60 * 30 },
+        next: { revalidate: 60 * 60 * 3 },
     })
     const data = await reqData.json()
 

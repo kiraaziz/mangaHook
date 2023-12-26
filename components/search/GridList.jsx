@@ -29,7 +29,7 @@ const List = ({ dataList, metaData }) => {
 
     return (
         <>
-            <div className="gap-3 h-max w-full grid lg:grid-cols-5 md:grid-cols-3 grid-cols-2 p-4 bg-transparent ">
+            <div className="gap-3 h-max w-full grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 p-4 bg-transparent ">
                 {mangeList && mangeList.map((val, index) => (<Card val={val} index={index + 1} />))}
                 <div className="col-span-full flex justify-end pt-3 pr-4">
                     <Pagination total={totalMangaPages} variant="light" classNames={{
