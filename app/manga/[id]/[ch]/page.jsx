@@ -1,6 +1,6 @@
-import PagesGridList from "@/components/Manga/pagesGridList"
+import PagesGridList from "../../../../components/Manga/PagesGridList"
 import useMangaChapter from "@/hooks/manga/useMangaChapter"
-
+//@/components/Manga/pagesGridList
 const MangaPage = async ({ params }) => {
 
     const mangaPages = await useMangaChapter(params.id, params.ch)
