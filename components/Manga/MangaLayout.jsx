@@ -7,7 +7,7 @@ const MangaLayout = ({ children, name, imageUrl, author, view, genres}) => {
     return (
         <div className="w-full p-5 grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-0 ">
             <h1 className="text-4xl font-semibold text-white lg:hidden block mt-2">{name}</h1>
-            <div className="pt-3 lg:h-[75svh]">
+            <div className="pt-3 lg:h-[75svh] lg:sticky lg:top-14">
                 <div className="w-full h-full items-center justify-center grid grid-cols-2 ">
                     <img className="object-cover bg-white rounded-md mx-auto" src={imageUrl} />
                     <div className="flex-1 overflow-auto px-3 h-max lg:px-0">
